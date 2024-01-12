@@ -1,7 +1,7 @@
-import { useGetRandomCharacterQuery } from "@/store/api/characters-api";
+// import { useGetRandomCharacterQuery } from "@/store/api/characters-api";
 
 export const HomePage = () => {
-	const { data, isLoading } = useGetRandomCharacterQuery();
+	// const { data, isLoading } = useGetRandomCharacterQuery();
 
 	return (
 		<div>

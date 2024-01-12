@@ -2,8 +2,7 @@ import {
 	Select,
 	SelectContent,
 	SelectItem,
-	SelectTrigger,
-	SelectValue,
+	SelectTrigger, // SelectValue,
 } from "@/components/ui/select";
 import classNames from "classnames";
 import { MoonStar, SunMoon } from "lucide-react";
