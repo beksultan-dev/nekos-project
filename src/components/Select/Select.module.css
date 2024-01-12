@@ -1,0 +1,10 @@
+.dark {
+	background-color: #282828;
+	color: white;
+}
+
+.light {
+	background-color: #ffffff;
+	color: rgba(0, 0, 0, 0.986);
+	border: 1px solid black;
+}

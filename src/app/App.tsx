@@ -1,14 +1,17 @@
+import { Navigation } from "@/components/Navigation";
+import { HomePage } from "@/pages/home-page";
+import { NotFoundPage } from "@/pages/not-found-page";
 import { Route, Routes } from "react-router-dom";
-import { HomePage } from "../pages/home-page";
 
 function App() {
 	return (
-		<div>
-			<h1>Nav</h1>
+		<>
+			<Navigation />
 			<Routes>
 				<Route path="/" element={<HomePage />} />
+				<Route path="*" element={<NotFoundPage />} />
 			</Routes>
-		</div>
+		</>
 	);
 }
 

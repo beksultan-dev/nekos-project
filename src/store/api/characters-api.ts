@@ -1,13 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
-const BASE_URL = "https://api.nekosapi.com/v3/";
+import { Main } from "./types";
 
 export const charactersApi = createApi({
 	reducerPath: "characterApi",
-	baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+	baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASEURL }),
 	endpoints: (builder) => ({
-		getRandomCharacter: builder.query<void, void>({
-			query: () => "",
+		getRandomCharacter: builder.query<Main, void>({
+			query: () => ({ url: "images/random?limit=1" }),
 		}),
 	}),
 });
