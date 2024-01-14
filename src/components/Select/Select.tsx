@@ -19,10 +19,7 @@ export const SelectModel = () => {
 
 	return (
 		<>
-			<Select
-				value={theme}
-				onValueChange={(value: Theme) => setTheme(value)}
-			>
+			<Select value={theme} onValueChange={(value: Theme) => setTheme(value)}>
 				<SelectTrigger
 					className={s[`${selectClass}`]}
 					style={{ width: "max-content" }}
@@ -31,10 +28,7 @@ export const SelectModel = () => {
 				</SelectTrigger>
 
 				<SelectContent className={s[`${selectClass}`]}>
-					<SelectItem
-						value="light"
-						onSelect={() => setTheme("light")}
-					>
+					<SelectItem value="light" onSelect={() => setTheme("light")}>
 						Light
 					</SelectItem>
 					<SelectItem value="dark" onSelect={() => setTheme("dark")}>
