@@ -2,12 +2,19 @@
 	"trailingComma": "all",
 	"tabWidth": 4,
 	"semi": true,
-	"printWidth": 80,
+	"printWidth": 90,
 	"bracketSpacing": true,
 	"endOfLine": "lf",
 	"useTabs": true,
-	"importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+	"importOrder": [
+		"^@core/(.*)$",
+		"^@server/(.*)$",
+		"^@ui/(.*)$",
+		"^[./]"
+	],
 	"importOrderSeparation": false,
 	"importOrderSortSpecifiers": true,
-	"plugins": ["@trivago/prettier-plugin-sort-imports"]
+	"plugins": [
+		"@trivago/prettier-plugin-sort-imports"
+	]
 }

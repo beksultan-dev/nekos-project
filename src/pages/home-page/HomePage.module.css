@@ -1,4 +1,13 @@
-.dark {
-	background-color: black;
-	color: white;
+.container {
+	overflow: hidden;
+	border-radius: 5px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.img {
+	width: 25%;
+	height: 500px;
+
+	object-fit: cover;
 }

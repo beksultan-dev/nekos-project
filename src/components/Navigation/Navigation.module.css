@@ -4,6 +4,8 @@
 	padding: 20px;
 	font-size: 1.3em;
 	width: 100%;
+	user-select: none;
+	overflow: hidden;
 }
 
 .link {

@@ -29,6 +29,7 @@ export const SelectModel = () => {
 				>
 					{theme === "dark" ? <MoonStar /> : <SunMoon />}
 				</SelectTrigger>
+
 				<SelectContent className={s[`${selectClass}`]}>
 					<SelectItem
 						value="light"
