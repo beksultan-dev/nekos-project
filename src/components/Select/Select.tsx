@@ -4,7 +4,7 @@ import {
 	SelectItem,
 	SelectTrigger, // SelectValue,
 } from "@/components/ui/select";
-import { useThemeCustom } from "@/hooks";
+import { useThemeCustom } from "@/hooks/useThemeCustom";
 import { MoonStar, SunMoon } from "lucide-react";
 import { Theme } from "../ui/theme-provider";
 import s from "./Select.module.css";

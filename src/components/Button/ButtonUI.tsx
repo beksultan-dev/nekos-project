@@ -1,4 +1,4 @@
-import { useThemeCustom } from "@/hooks";
+import { useThemeCustom } from "@/hooks/useThemeCustom";
 import { Button } from "../ui/button";
 import s from "./ButtonUI.module.css";
 

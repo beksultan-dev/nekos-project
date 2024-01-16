@@ -2,7 +2,7 @@ import {
 	NavigationMenu, // NavigationMenuItem,
 	NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { useThemeCustom } from "@/hooks";
+import { useThemeCustom } from "@/hooks/useThemeCustom";
 import { MoonStar, SunMoon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { ButtonUI } from "../Button";

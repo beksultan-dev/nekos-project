@@ -1,7 +1,7 @@
 import { AgeRating } from "@/components/AgeRating";
 import { Loading } from "@/components/Loading/Loading";
 import { SheetUI } from "@/components/SheetModel";
-import { useThemeCustom } from "@/hooks";
+import { useThemeCustom } from "@/hooks/useThemeCustom";
 import { useGetRandomCharacterQuery } from "@/store/api/characters-api";
 import { useAppSelector } from "@/store/hooks";
 import { useInView } from "react-intersection-observer";

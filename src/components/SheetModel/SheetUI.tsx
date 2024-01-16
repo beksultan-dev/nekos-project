@@ -6,7 +6,7 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from "@/components/ui/sheet";
-import { useThemeCustom } from "@/hooks";
+import { useThemeCustom } from "@/hooks/useThemeCustom";
 import s from "./SheetUI.module.css";
 
 interface Props {
