@@ -1,6 +1,6 @@
-import { useThemeCustom } from "@/hooks/useThemeCustom";
+import { useThemeCustom } from "@/hooks";
 import { Button } from "../ui/button";
-import s from "./ButtonUI.module.css";
+import s from "./index.module.css";
 
 interface Props {
 	children: React.ReactNode;

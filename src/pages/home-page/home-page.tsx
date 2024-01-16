@@ -1,12 +1,12 @@
-import { AgeRating } from "@/components/AgeRating";
-import { Loading } from "@/components/Loading/Loading";
-import { SheetUI } from "@/components/SheetModel";
-import { useThemeCustom } from "@/hooks/useThemeCustom";
+import { Loading } from "@/common/loading";
+import { useThemeCustom } from "@/hooks";
+import { AgeRatingSelect } from "@/pages/home-page/components";
+import { SheetModal } from "@/pages/home-page/components/sheet-modal/ui/ui";
 import { useGetRandomCharacterQuery } from "@/store/api/characters-api";
 import { useAppSelector } from "@/store/hooks";
 import { useInView } from "react-intersection-observer";
 import { v4 as uuidv4 } from "uuid";
-import s from "./HomePage.module.css";
+import s from "./home-page.module.css";
 
 export const HomePage = () => {
 	const { globalAgeRating } = useAppSelector((state) => state.userPreferenses);
@@ -31,15 +31,16 @@ export const HomePage = () => {
 		<>
 			{!isLoading && (
 				<div className={s.triggerBtn}>
-					<SheetUI
+					<SheetModal
 						className={cls}
 						trigger_text="filter"
 						content_title="Age rating"
 					>
-						<AgeRating />
-					</SheetUI>
+						<AgeRatingSelect />
+					</SheetModal>
 				</div>
 			)}
+
 			<div className={s.container}>
 				{status === "rejected" && <h1>Error</h1>}
 				{!isLoading ? (

@@ -1,9 +1,9 @@
-import { Navigation } from "@/components/Navigation";
-import { HomePage } from "@/pages/home-page";
+import { Navigation } from "@/common/navigation";
+import { HomePage } from "@/pages/home-page/home-page";
 import { NotFoundPage } from "@/pages/not-found-page";
 import { Route, Routes } from "react-router-dom";
 
-function App() {
+export const App = () => {
 	return (
 		<>
 			<Navigation />
@@ -13,6 +13,4 @@ function App() {
 			</Routes>
 		</>
 	);
-}
-
-export default App;
+};

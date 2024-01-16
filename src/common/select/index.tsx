@@ -3,11 +3,11 @@ import {
 	SelectContent,
 	SelectItem,
 	SelectTrigger, // SelectValue,
-} from "@/components/ui/select";
-import { useThemeCustom } from "@/hooks/useThemeCustom";
+} from "@/common/ui/select";
+import { useThemeCustom } from "@/hooks";
 import { MoonStar, SunMoon } from "lucide-react";
 import { Theme } from "../ui/theme-provider";
-import s from "./Select.module.css";
+import s from "./index.module.css";
 
 export const SelectModel = () => {
 	const { cls, theme, setTheme } = useThemeCustom();

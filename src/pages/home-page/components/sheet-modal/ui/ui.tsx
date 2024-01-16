@@ -5,9 +5,9 @@ import {
 	SheetPortal,
 	SheetTitle,
 	SheetTrigger,
-} from "@/components/ui/sheet";
-import { useThemeCustom } from "@/hooks/useThemeCustom";
-import s from "./SheetUI.module.css";
+} from "@/common/ui/sheet";
+import { useThemeCustom } from "@/hooks";
+import s from "./ui.module.css";
 
 interface Props {
 	className: string;
@@ -16,7 +16,12 @@ interface Props {
 	content_title: string;
 }
 
-export const SheetUI = ({ className, children, trigger_text, content_title }: Props) => {
+export const SheetModal = ({
+	className,
+	children,
+	trigger_text,
+	content_title,
+}: Props) => {
 	const { cls } = useThemeCustom();
 
 	return (

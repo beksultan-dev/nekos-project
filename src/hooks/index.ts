@@ -1,4 +1,4 @@
-import { useTheme } from "@/components/ui/theme-provider";
+import { useTheme } from "@/common/ui/theme-provider";
 import classNames from "classnames";
 import { useCallback } from "react";
 

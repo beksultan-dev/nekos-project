@@ -1,12 +1,12 @@
 import {
 	NavigationMenu, // NavigationMenuItem,
 	NavigationMenuList,
-} from "@/components/ui/navigation-menu";
-import { useThemeCustom } from "@/hooks/useThemeCustom";
+} from "@/common/ui/navigation-menu";
+import { useThemeCustom } from "@/hooks";
 import { MoonStar, SunMoon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { ButtonUI } from "../Button";
-import s from "./Navigation.module.css";
+import { ButtonUI } from "../button";
+import s from "./index.module.css";
 
 export const Navigation = () => {
 	const { pathname } = useLocation();
