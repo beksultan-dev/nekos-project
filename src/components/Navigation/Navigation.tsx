@@ -2,31 +2,20 @@ import {
 	NavigationMenu, // NavigationMenuItem,
 	NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import classNames from "classnames";
+import { useThemeCustom } from "@/hooks";
 import { MoonStar, SunMoon } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ButtonUI } from "../Button";
-import { useTheme } from "../ui/theme-provider";
 import s from "./Navigation.module.css";
 
 export const Navigation = () => {
-	const { setTheme, theme } = useTheme();
-	const handleClick = () => {
-		if (theme === "dark") {
-			setTheme("light");
-		} else {
-			setTheme("dark");
-		}
-	};
+	const { pathname } = useLocation();
 
-	const selectClass = classNames({
-		dark: theme === "dark",
-		light: theme === "light",
-	});
+	const { cls, changeTheme, theme } = useThemeCustom();
 
 	return (
 		<div>
-			<NavigationMenu className={s.card}>
+			<NavigationMenu className={s[cls]}>
 				<NavigationMenuList
 					style={{
 						width: "100vw",
@@ -38,7 +27,8 @@ export const Navigation = () => {
 					<Link to="/" className={s.link}>
 						Home
 					</Link>
-					<ButtonUI action={handleClick} className={selectClass}>
+
+					<ButtonUI onClick={changeTheme} className="theme">
 						{theme === "dark" ? <MoonStar /> : <SunMoon />}
 					</ButtonUI>
 				</NavigationMenuList>

@@ -6,6 +6,9 @@
 	font-family: "Roboto", sans-serif;
 	font-weight: 400;
 	font-style: normal;
+
+	--theme-dark: #0b0b0b;
+	--theme-light: #ffffff86;
 }
 
 html,
@@ -26,11 +29,11 @@ h6 {
 }
 
 html.light {
-	background-color: #ffffff86;
+	background-color: var(--theme-light);
 	color: rgba(0, 0, 0, 0.986);
 }
 
 html.dark {
-	background-color: #0b0b0b;
+	background-color: var(--theme-dark);
 	color: white;
 }

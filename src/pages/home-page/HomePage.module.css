@@ -11,3 +11,9 @@
 
 	object-fit: cover;
 }
+
+.triggerBtn {
+	display: flex;
+	justify-content: flex-end;
+	padding: 15px 20px;
+}

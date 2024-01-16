@@ -4,30 +4,22 @@ import {
 	SelectItem,
 	SelectTrigger, // SelectValue,
 } from "@/components/ui/select";
-import classNames from "classnames";
+import { useThemeCustom } from "@/hooks";
 import { MoonStar, SunMoon } from "lucide-react";
-import { Theme, useTheme } from "../ui/theme-provider";
+import { Theme } from "../ui/theme-provider";
 import s from "./Select.module.css";
 
 export const SelectModel = () => {
-	const { setTheme, theme } = useTheme();
-
-	const selectClass = classNames({
-		dark: theme === "dark",
-		light: theme === "light",
-	});
+	const { cls, theme, setTheme } = useThemeCustom();
 
 	return (
 		<>
 			<Select value={theme} onValueChange={(value: Theme) => setTheme(value)}>
-				<SelectTrigger
-					className={s[`${selectClass}`]}
-					style={{ width: "max-content" }}
-				>
+				<SelectTrigger className={s[`${cls}`]} style={{ width: "max-content" }}>
 					{theme === "dark" ? <MoonStar /> : <SunMoon />}
 				</SelectTrigger>
 
-				<SelectContent className={s[`${selectClass}`]}>
+				<SelectContent className={s[`${cls}`]}>
 					<SelectItem value="light" onSelect={() => setTheme("light")}>
 						Light
 					</SelectItem>
