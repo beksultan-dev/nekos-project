@@ -14,12 +14,12 @@
 
 .dark_theme_trigger {
 	border: 1px solid white;
-	padding: 2px 15px;
+	padding: 2px 20px 4px;
 	border-radius: 20px;
 }
 
 .light_theme_trigger {
 	border: 1px solid var(--theme-dark);
-	padding: 2px 15px;
+	padding: 2px 20px 4px;
 	border-radius: 20px;
 }

@@ -7,7 +7,7 @@ import {
 	SheetTrigger,
 } from "@/common/ui/sheet";
 import { useThemeCustom } from "@/hooks";
-import s from "./ui.module.css";
+import s from "./sheet-modal.module.css";
 
 interface Props {
 	className: string;

@@ -1,9 +1,9 @@
 import { Rating } from "@/store/api/types";
-import { ButtonUI } from "../../../../../common/button";
-import { Label } from "../../../../../common/ui/label";
-import { RadioGroup, RadioGroupItem } from "../../../../../common/ui/radio-group";
-import { useRating } from "../hooks";
-import s from "./ui.module.css";
+import { ButtonUI } from "../../../../common/button";
+import { Label } from "../../../../common/ui/label";
+import { RadioGroup, RadioGroupItem } from "../../../../common/ui/radio-group";
+import s from "./age-rating.module.css";
+import { useRating } from "./hooks";
 
 export const AgeRatingSelect = () => {
 	const {

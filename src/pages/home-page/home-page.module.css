@@ -5,13 +5,6 @@
 	flex-wrap: wrap;
 }
 
-.img {
-	width: 25%;
-	height: 500px;
-
-	object-fit: cover;
-}
-
 .triggerBtn {
 	display: flex;
 	justify-content: flex-end;
