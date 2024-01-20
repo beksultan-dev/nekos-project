@@ -6,15 +6,8 @@
 	"bracketSpacing": true,
 	"endOfLine": "lf",
 	"useTabs": true,
-	"importOrder": [
-		"^@core/(.*)$",
-		"^@server/(.*)$",
-		"^@ui/(.*)$",
-		"^[./]"
-	],
+	"importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
 	"importOrderSeparation": false,
 	"importOrderSortSpecifiers": true,
-	"plugins": [
-		"@trivago/prettier-plugin-sort-imports"
-	],
+	"plugins": ["@trivago/prettier-plugin-sort-imports"]
 }
