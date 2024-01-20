@@ -14,3 +14,20 @@
 .theme {
 	border-radius: 50px !important;
 }
+
+.fz20 {
+	font-size: 20px !important;
+	background-color: black;
+}
+
+.fz20green {
+	font-size: 20px !important;
+	background-color: rgb(42, 177, 62);
+	border: none;
+}
+
+.fz20blue {
+	font-size: 20px !important;
+	background-color: rgb(42, 109, 177);
+	border: none;
+}

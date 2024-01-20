@@ -1,15 +1,14 @@
-import { Loading } from "@/common/loading";
-import { useThemeCustom } from "@/hooks";
+import { Loading } from "@/common/loading/loading";
+import { useThemeChange } from "@/hooks/useThemeChange";
 import { AgeRatingSelect } from "@/pages/home-page/components";
 import { SheetModal } from "@/pages/home-page/components/sheet-modal/sheet-modal";
 import { Item } from "@/store/api/types";
+import s from "./HomePage.module.css";
 import { ImagesList } from "./components/images-list/images-list";
-import s from "./home-page.module.css";
-import { useRefetchByScroll } from "./hooks";
+import { useRefetchByScroll } from "./hooks/useRefetchByScroll";
 
 export const HomePage = () => {
-	const { cls } = useThemeCustom("dark_theme_trigger", "light_theme_trigger");
-
+	const { cls } = useThemeChange("dark_theme_trigger", "light_theme_trigger");
 	const { ref, inView, data, isLoading, isError } = useRefetchByScroll();
 
 	return (
@@ -18,7 +17,7 @@ export const HomePage = () => {
 				<div className={s.triggerBtn}>
 					<SheetModal
 						className={cls}
-						trigger_text="filter"
+						trigger_text="preferences"
 						content_title="Age rating"
 					>
 						<AgeRatingSelect />

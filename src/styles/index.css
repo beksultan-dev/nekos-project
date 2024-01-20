@@ -32,6 +32,10 @@ h6 {
 	font-style: normal;
 }
 
+input {
+	background-color: transparent;
+}
+
 html.light {
 	background-color: var(--theme-light);
 	color: rgba(0, 0, 0, 0.986);

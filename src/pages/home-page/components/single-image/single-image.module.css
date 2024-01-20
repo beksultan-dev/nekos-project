@@ -5,10 +5,27 @@
 	object-fit: cover;
 }
 
-.container {
-	width: 350px;
+.main_container {
+	box-shadow: 0 2px 10px var(--black-a7);
+	height: 580px;
 	border-radius: 6px;
 	overflow: hidden;
-	box-shadow: 0 2px 10px var(--black-a7);
-	height: 500px;
+	border: 2px solid red;
+}
+
+.container {
+	width: 100%;
+	flex-grow: 0;
+	flex-shrink: 0;
+	overflow: hidden;
+	height: 520px;
+}
+
+.tooltip {
+	display: flex;
+	column-gap: 30px;
+	justify-content: center;
+	align-items: center;
+	height: 60px;
+	padding-bottom: 2px;
 }

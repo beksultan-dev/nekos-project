@@ -6,7 +6,7 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from "@/common/ui/sheet";
-import { useThemeCustom } from "@/hooks";
+import { useThemeChange } from "@/hooks/useThemeChange";
 import s from "./sheet-modal.module.css";
 
 interface Props {
@@ -22,7 +22,7 @@ export const SheetModal = ({
 	trigger_text,
 	content_title,
 }: Props) => {
-	const { cls } = useThemeCustom();
+	const { cls } = useThemeChange();
 
 	return (
 		<>

@@ -2,7 +2,7 @@ import { useTheme } from "@/common/ui/theme-provider";
 import classNames from "classnames";
 import { useCallback } from "react";
 
-export const useThemeCustom = (
+export const useThemeChange = (
 	dark: string = "dark_theme",
 	light: string = "light_theme",
 ) => {

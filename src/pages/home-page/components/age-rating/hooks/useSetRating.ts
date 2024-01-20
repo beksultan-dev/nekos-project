@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { setGlobalAgeRating } from "@/store/slices/user-preferenses/user-preferenses";
 import { useCallback } from "react";
 
-export const useRating = () => {
+export const useSetRating = () => {
 	const dispatch = useAppDispatch();
 	const { globalAgeRating } = useAppSelector((state) => state.userPreferenses);
 

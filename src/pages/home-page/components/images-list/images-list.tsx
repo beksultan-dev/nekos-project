@@ -13,23 +13,26 @@ interface Props {
 
 export const ImagesList = forwardRef(({ dataImg, isLoading, inView }: Props, ref) => {
 	return (
-		<div className={s.container}>
+		<div>
 			{!isLoading && (
-				<>
+				<div className={s.container}>
 					{dataImg?.map((elem) => (
 						<SingleImage
 							src={elem.image_url}
 							loader={
-								<div className="flex items-center space-x-4 justify-center h-full">
+								<div className="flex items-center space-x-4 justify-center h-full w-full">
 									<Skeleton className="h-20 w-20 rounded-full bg-slate-800" />
 								</div>
 							}
 							unloader={<h1>error</h1>}
 							key={uuidv4()}
+							externalSrc={elem.source}
+							imageId={elem.id}
+							rating={elem.rating}
 						/>
 					))}
 					<div ref={ref as never}></div>
-				</>
+				</div>
 			)}
 		</div>
 	);

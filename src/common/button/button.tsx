@@ -1,10 +1,10 @@
-import { useThemeCustom } from "@/hooks";
+import { useThemeChange } from "@/hooks/useThemeChange";
 import { Button } from "../ui/button";
 import s from "./index.module.css";
 
 interface Props {
 	children: React.ReactNode;
-	onClick: () => void;
+	onClick?: () => void;
 	className?: string;
 	disabled?: boolean;
 }
@@ -15,7 +15,7 @@ export const ButtonUI = ({
 	className = "",
 	disabled = false,
 }: Props) => {
-	const { cls } = useThemeCustom();
+	const { cls } = useThemeChange();
 
 	return (
 		<Button

@@ -1,3 +1,5 @@
+import s from "./NotFoundPage.module.css";
+
 export const NotFoundPage = () => {
-	return <div>NotFoundPage</div>;
+	return <div>Page Not Found</div>;
 };

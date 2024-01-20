@@ -2,16 +2,16 @@ import {
 	NavigationMenu, // NavigationMenuItem,
 	NavigationMenuList,
 } from "@/common/ui/navigation-menu";
-import { useThemeCustom } from "@/hooks";
+import { useThemeChange } from "@/hooks/useThemeChange";
 import { MoonStar, SunMoon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { ButtonUI } from "../button";
+import { ButtonUI } from "../button/button";
 import s from "./index.module.css";
 
 export const Navigation = () => {
 	const { pathname } = useLocation();
 
-	const { cls, changeTheme, theme } = useThemeCustom();
+	const { cls, changeTheme, theme } = useThemeChange();
 
 	return (
 		<div>
@@ -24,9 +24,14 @@ export const Navigation = () => {
 						padding: "0 25px",
 					}}
 				>
-					<Link to="/" className={s.link}>
-						Home
-					</Link>
+					<div>
+						<Link to="/" className={s.link}>
+							Home
+						</Link>
+						<Link to="/user-profile" className={s.link}>
+							Profile
+						</Link>
+					</div>
 
 					<ButtonUI onClick={changeTheme} className="theme">
 						{theme === "dark" ? <MoonStar /> : <SunMoon />}
