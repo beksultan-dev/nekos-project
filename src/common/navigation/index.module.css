@@ -9,6 +9,10 @@
 	border-bottom: 1px solid white;
 }
 
+.dark_theme a.active {
+	color: red;
+}
+
 .light_theme {
 	display: flex;
 	justify-content: space-between;

@@ -31,3 +31,16 @@
 	background-color: rgb(42, 109, 177);
 	border: none;
 }
+
+.authBack {
+	position: absolute;
+	left: -90px;
+	top: 25px;
+	border-radius: 50% !important;
+	width: 70px !important;
+	height: 70px !important;
+}
+
+.authBack:hover {
+	background-color: rgba(255, 255, 255, 0.132);
+}

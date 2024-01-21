@@ -45,3 +45,9 @@ html.dark {
 	background-color: var(--theme-dark);
 	color: white;
 }
+
+a[class~="active"] {
+	color: red !important;
+	border: 1px solid;
+	border-radius: 6px;
+}

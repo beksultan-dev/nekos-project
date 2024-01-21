@@ -4,7 +4,7 @@ import {
 } from "@/common/ui/navigation-menu";
 import { useThemeChange } from "@/hooks/useThemeChange";
 import { MoonStar, SunMoon } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { ButtonUI } from "../button/button";
 import s from "./index.module.css";
 
@@ -14,7 +14,7 @@ export const Navigation = () => {
 	const { cls, changeTheme, theme } = useThemeChange();
 
 	return (
-		<div>
+		<header>
 			<NavigationMenu className={s[cls]}>
 				<NavigationMenuList
 					style={{
@@ -25,12 +25,12 @@ export const Navigation = () => {
 					}}
 				>
 					<div>
-						<Link to="/" className={s.link}>
+						<NavLink to="/" className={s.link}>
 							Home
-						</Link>
-						<Link to="/user-profile" className={s.link}>
+						</NavLink>
+						<NavLink to="/user-profile" className={s.link}>
 							Profile
-						</Link>
+						</NavLink>
 					</div>
 
 					<ButtonUI onClick={changeTheme} className="theme">
@@ -38,6 +38,6 @@ export const Navigation = () => {
 					</ButtonUI>
 				</NavigationMenuList>
 			</NavigationMenu>
-		</div>
+		</header>
 	);
 };

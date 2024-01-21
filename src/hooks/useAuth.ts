@@ -1,6 +1,8 @@
 import { auth, googleProvider } from "@/config/firebase-config";
 import {
+	confirmPasswordReset,
 	createUserWithEmailAndPassword,
+	sendPasswordResetEmail,
 	signInWithEmailAndPassword,
 	signInWithPopup,
 	signOut,
@@ -38,7 +40,7 @@ export const useAuth = () => {
 			};
 
 			localStorage.setItem("auth", JSON.stringify(userData));
-			navigate("/user-profile");
+			navigate("/auth/user-profile");
 		} catch (err) {
 			console.log(err);
 		}
@@ -80,7 +82,16 @@ export const useAuth = () => {
 			};
 
 			localStorage.setItem("auth", JSON.stringify(userData));
-			navigate("/user-profile");
+			navigate("/auth/user-profile");
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	const resetPassByMail = async () => {
+		try {
+			await sendPasswordResetEmail(auth, email.inputValue);
+			navigate("/auth/login");
 		} catch (err) {
 			console.log(err);
 		}
@@ -92,5 +103,13 @@ export const useAuth = () => {
 		navigate("/");
 	};
 
-	return { registerWithEmail, email, pass, loginWithGoogle, loginWithEmail, logOut };
+	return {
+		registerWithEmail,
+		email,
+		pass,
+		loginWithGoogle,
+		loginWithEmail,
+		logOut,
+		resetPassByMail,
+	};
 };

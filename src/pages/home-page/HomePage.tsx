@@ -1,11 +1,22 @@
 import { Loading } from "@/common/loading/loading";
+import { Navigation } from "@/common/navigation/navigation";
 import { useThemeChange } from "@/hooks/useThemeChange";
 import { AgeRatingSelect } from "@/pages/home-page/components";
 import { SheetModal } from "@/pages/home-page/components/sheet-modal/sheet-modal";
 import { Item } from "@/store/api/types";
+import { Outlet } from "react-router-dom";
 import s from "./HomePage.module.css";
 import { ImagesList } from "./components/images-list/images-list";
 import { useRefetchByScroll } from "./hooks/useRefetchByScroll";
+
+export const HomeLayout = () => {
+	return (
+		<>
+			<Navigation />
+			<Outlet />
+		</>
+	);
+};
 
 export const HomePage = () => {
 	const { cls } = useThemeChange("dark_theme_trigger", "light_theme_trigger");

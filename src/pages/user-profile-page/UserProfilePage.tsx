@@ -1,18 +1,22 @@
 import { ButtonUI } from "@/common/button/button";
+import { useTheme } from "@/common/ui/theme-provider";
 import { useAuth } from "@/hooks/useAuth";
 import { useGetAuthUser } from "@/hooks/useGetAuthUser";
+import { useThemeChange } from "@/hooks/useThemeChange";
 import { Img } from "react-image";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import s from "./UserProfilePage.module.css";
 import { useGetLikes } from "./hooks/useGetLikes";
 
 export const UserProfile = () => {
 	const user = useGetAuthUser();
-	const queryData = useGetLikes();
 	const { logOut } = useAuth();
+	const queryData = useGetLikes();
+	const { pathname } = useLocation();
+	const { cls } = useThemeChange("container", "containerlight");
 
-	if (!user) {
-		return <Navigate to="/register" />;
+	if (pathname === "/user-profile" && !user.isAuth) {
+		return <Navigate to="/auth/register" />;
 	}
 
 	const placeHolder =
@@ -20,14 +24,14 @@ export const UserProfile = () => {
 
 	return (
 		<div className="w-full h-full flex justify-center">
-			<div className={s.container}>
+			<div className={s[cls]}>
 				<div className="flex justify-between mb-8">
 					<div className={s.picture}>
 						<Img src={user?.photo || placeHolder}></Img>
 					</div>
 					<div>{user.email}</div>
 					{user.name && <div>{user.name}</div>}
-					<ButtonUI className="fz20" onClick={logOut}>
+					<ButtonUI className="fz20blue" onClick={logOut}>
 						Sign out
 					</ButtonUI>
 				</div>

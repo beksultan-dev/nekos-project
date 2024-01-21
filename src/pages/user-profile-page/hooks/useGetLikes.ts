@@ -41,7 +41,7 @@ export const useGetLikes = () => {
 	};
 
 	useEffect(() => {
-		if (data) {
+		if (data.isAuth) {
 			getData();
 		}
 	}, []);
