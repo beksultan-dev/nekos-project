@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { db } from "@/config/firebase-config";
+import { db } from "@/shared/config/firebase-config";
 import {
 	DocumentData,
 	collection,
@@ -9,24 +9,26 @@ import {
 	where,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { useGetAuthUser } from "../../../hooks/useGetAuthUser";
+import { useGetAuthUser } from "../../../shared/hooks/useGetAuthUser";
 
-type Data = {
+export type Data = {
 	data: DocumentData;
 	id: string;
 };
 
 export const useGetLikes = () => {
+	const user = useGetAuthUser();
 	const [likes, setLikes] = useState<Data[]>();
+
 	const likesRef = collection(db, "likes");
-	const data = useGetAuthUser();
+
 	const docs: Data[] = [];
 
 	const getData = async () => {
 		const q = query(
 			likesRef,
-			where("userId", "==", data?.userId),
-			orderBy("createdAt"),
+			where("userId", "==", user?.userId),
+			orderBy("createdAt", "desc"),
 		);
 
 		const querySnapshot = await getDocs(q);
@@ -41,10 +43,10 @@ export const useGetLikes = () => {
 	};
 
 	useEffect(() => {
-		if (data.isAuth) {
+		if (user) {
 			getData();
 		}
 	}, []);
 
-	return { likes };
+	return { likes, getData, docs };
 };

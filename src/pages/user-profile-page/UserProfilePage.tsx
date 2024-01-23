@@ -1,21 +1,19 @@
-import { ButtonUI } from "@/common/button/button";
-import { useTheme } from "@/common/ui/theme-provider";
-import { useAuth } from "@/hooks/useAuth";
-import { useGetAuthUser } from "@/hooks/useGetAuthUser";
-import { useThemeChange } from "@/hooks/useThemeChange";
-import { Img } from "react-image";
+import { useAuth } from "@/shared/hooks/useAuth";
+import { useGetAuthUser } from "@/shared/hooks/useGetAuthUser";
 import { Navigate, useLocation } from "react-router-dom";
-import s from "./UserProfilePage.module.css";
+import { RandomImagesList } from "./components/random-images-list/random-images-list";
+import { UserProfileInfo } from "./components/user-profile-info/user-profile-info";
 import { useGetLikes } from "./hooks/useGetLikes";
 
-export const UserProfile = () => {
+export type UserModel = ReturnType<typeof useGetAuthUser>;
+
+export const UserProfilePage = () => {
 	const user = useGetAuthUser();
 	const { logOut } = useAuth();
-	const queryData = useGetLikes();
 	const { pathname } = useLocation();
-	const { cls } = useThemeChange("container", "containerlight");
+	const likes = useGetLikes();
 
-	if (pathname === "/user-profile" && !user.isAuth) {
+	if (pathname === "/user-profile" && !user) {
 		return <Navigate to="/auth/register" />;
 	}
 
@@ -23,26 +21,10 @@ export const UserProfile = () => {
 		"https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg";
 
 	return (
-		<div className="w-full h-full flex justify-center">
-			<div className={s[cls]}>
-				<div className="flex justify-between mb-8">
-					<div className={s.picture}>
-						<Img src={user?.photo || placeHolder}></Img>
-					</div>
-					<div>{user.email}</div>
-					{user.name && <div>{user.name}</div>}
-					<ButtonUI className="fz20blue" onClick={logOut}>
-						Sign out
-					</ButtonUI>
-				</div>
-
-				<div className={s.grid}>
-					{queryData.likes?.map((elem) => (
-						<div key={elem.id} className={s.griditem}>
-							<Img src={elem.data.image_url} />
-						</div>
-					))}
-				</div>
+		<div className="flex h-max w-full justify-center text-base">
+			<div className="flex h-max w-full justify-between gap-6 p-16">
+				<UserProfileInfo logOut={logOut} user={user} placeHolder={placeHolder} />
+				<RandomImagesList likes={likes.likes} />
 			</div>
 		</div>
 	);

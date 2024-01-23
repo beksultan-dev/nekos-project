@@ -1,4 +1,4 @@
-import { Rating } from "@/store/api/types";
+import { Rating } from "@/store/models/randomCharactersModels";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface InitialState {

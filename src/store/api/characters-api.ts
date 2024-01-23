@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Main, Rating } from "./types";
+import { Main, Rating } from "../models/randomCharactersModels";
 
-export const charactersApi = createApi({
+export const api = createApi({
 	reducerPath: "characterApi",
 	baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASEURL }),
 	endpoints: (builder) => ({
@@ -19,12 +19,8 @@ export const charactersApi = createApi({
 			merge: (current, newItems) => {
 				current.items.push(...newItems.items);
 			},
-
-			forceRefetch: (params) => {
-				return params.currentArg !== params.previousArg;
-			},
 		}),
 	}),
 });
 
-export const { useGetRandomCharacterQuery, util } = charactersApi;
+export const { useGetRandomCharacterQuery, util, useLazyGetRandomCharacterQuery } = api;

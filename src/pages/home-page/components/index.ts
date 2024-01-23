@@ -1,2 +1,2 @@
-export { AgeRatingSelect } from "./age-rating/age-rating";
+export { AgeRatingSelect } from "./sheet-modal/age-rating/age-rating";
 export { SheetModal } from "./sheet-modal/sheet-modal";

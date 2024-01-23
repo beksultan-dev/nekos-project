@@ -2,44 +2,29 @@ import {
 	Sheet,
 	SheetContent,
 	SheetHeader,
-	SheetPortal,
 	SheetTitle,
 	SheetTrigger,
 } from "@/common/ui/sheet";
-import { useThemeChange } from "@/hooks/useThemeChange";
-import s from "./sheet-modal.module.css";
+import { SlidersHorizontal } from "lucide-react";
 
 interface Props {
-	className: string;
 	children: React.ReactNode;
-	trigger_text: string;
-	content_title: string;
 }
 
-export const SheetModal = ({
-	className,
-	children,
-	trigger_text,
-	content_title,
-}: Props) => {
-	const { cls } = useThemeChange();
-
+export const SheetModal = ({ children }: Props) => {
 	return (
 		<>
 			<Sheet>
-				<SheetTrigger style={{ outline: "none" }} className={`${s[className]}`}>
-					{trigger_text}
+				<SheetTrigger className="py-1dark:border-white flex items-center gap-2 rounded border-black px-2 hover:underline">
+					<SlidersHorizontal />
+					preferences
 				</SheetTrigger>
-				<SheetPortal>
-					<SheetContent className={s[cls]}>
-						<SheetHeader>
-							<SheetTitle style={{ fontSize: "28px" }}>
-								{content_title}
-							</SheetTitle>
-							{children}
-						</SheetHeader>
-					</SheetContent>
-				</SheetPortal>
+				<SheetContent className="border-primary bg-zinc-200 dark:bg-zinc-800">
+					<SheetHeader>
+						<SheetTitle className="text-[28px]">Age rating</SheetTitle>
+						{children}
+					</SheetHeader>
+				</SheetContent>
 			</Sheet>
 		</>
 	);

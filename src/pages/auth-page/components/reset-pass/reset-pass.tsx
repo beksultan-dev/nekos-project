@@ -1,6 +1,6 @@
-import { ButtonUI } from "@/common/button/button";
+import { Button } from "@/common/ui/button";
 import { Input } from "@/common/ui/input";
-import { useInput } from "@/hooks/useInput";
+import { useInput } from "@/shared/hooks/useInput";
 
 interface Props {
 	resetPassByMail: () => Promise<void>;
@@ -18,13 +18,13 @@ export const ResetPassPage = ({ resetPassByMail, email }: Props) => {
 					type="email"
 					id="auth_email"
 					placeholder="Email"
-					className="mt-1"
+					className="mt-1 text-sm"
 				/>
 			</div>
 
-			<ButtonUI className={"fz20green"} onClick={resetPassByMail}>
+			<Button className="bg-slate-700 hover:bg-slate-600" onClick={resetPassByMail}>
 				Send confirmation email
-			</ButtonUI>
+			</Button>
 		</>
 	);
 };

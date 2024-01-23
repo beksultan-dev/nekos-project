@@ -1,0 +1,28 @@
+.dark_theme {
+	display: flex;
+	justify-content: space-between;
+	padding: 6px 20px;
+	font-size: 1.3em;
+	width: 100%;
+	user-select: none;
+	overflow: hidden;
+}
+
+.dark_theme a.active {
+	color: red;
+}
+
+.light_theme {
+	display: flex;
+	justify-content: space-between;
+	padding: 6px 20px;
+	font-size: 1.3em;
+	width: 100%;
+	user-select: none;
+	overflow: hidden;
+}
+
+.link {
+	font-weight: 700;
+	padding: 10px;
+}

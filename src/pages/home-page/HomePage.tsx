@@ -1,56 +1,47 @@
-import { Loading } from "@/common/loading/loading";
-import { Navigation } from "@/common/navigation/navigation";
-import { useThemeChange } from "@/hooks/useThemeChange";
+import { ErrorComponent } from "@/common/layout/error/HomePageError";
 import { AgeRatingSelect } from "@/pages/home-page/components";
 import { SheetModal } from "@/pages/home-page/components/sheet-modal/sheet-modal";
-import { Item } from "@/store/api/types";
-import { Outlet } from "react-router-dom";
+import { Item } from "@/store/models/randomCharactersModels";
+import { ErrorBoundary } from "react-error-boundary";
 import s from "./HomePage.module.css";
 import { ImagesList } from "./components/images-list/images-list";
+import { useFetchOnMount } from "./hooks/useFetchOnMount";
 import { useRefetchByScroll } from "./hooks/useRefetchByScroll";
-
-export const HomeLayout = () => {
-	return (
-		<>
-			<Navigation />
-			<Outlet />
-		</>
-	);
-};
+import { useRefetchOnError } from "./hooks/useRefetchOnError";
 
 export const HomePage = () => {
-	const { cls } = useThemeChange("dark_theme_trigger", "light_theme_trigger");
-	const { ref, inView, data, isLoading, isError } = useRefetchByScroll();
+	const { refetch, isFetching, isError, data, isLoading } = useFetchOnMount();
+	const { inView, ref } = useRefetchByScroll(refetch);
+	const { refetchOnClick } = useRefetchOnError();
+
+	const errorMsg = (err: Error) => {
+		console.log(err);
+	};
 
 	return (
 		<main>
 			{!isLoading && (
 				<div className={s.triggerBtn}>
-					<SheetModal
-						className={cls}
-						trigger_text="preferences"
-						content_title="Age rating"
-					>
+					<SheetModal>
 						<AgeRatingSelect />
 					</SheetModal>
 				</div>
 			)}
 
 			<div className={s.container}>
-				{isError && <h1>Error</h1>}
-
-				{!isLoading ? (
-					<>
-						<ImagesList
-							dataImg={data?.items as Item[]}
-							isLoading={isLoading}
-							ref={ref}
-							inView={inView}
-						/>
-					</>
-				) : (
-					<Loading />
-				)}
+				<ErrorBoundary
+					fallbackRender={ErrorComponent}
+					onError={errorMsg}
+					onReset={refetchOnClick}
+				>
+					<ImagesList
+						dataImg={data?.items as Item[]}
+						isLoading={isLoading}
+						ref={ref}
+						inView={inView}
+						isError={isError}
+					/>
+				</ErrorBoundary>
 			</div>
 		</main>
 	);
