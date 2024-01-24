@@ -15,14 +15,7 @@ interface Props {
 	rating: Rating;
 }
 
-export const SingleImage = ({
-	unloader,
-	loader,
-	src,
-	externalSrc,
-	imageId,
-	rating,
-}: Props) => {
+export const SingleImage = ({ unloader, loader, src, externalSrc, imageId, rating }: Props) => {
 	const { addLike } = useAddLikes();
 
 	const handleAddLike = () => {
@@ -37,27 +30,14 @@ export const SingleImage = ({
 		<VisibilitySensor>
 			<div className={s.main_container}>
 				<div className={s.container}>
-					<Img
-						src={src}
-						unloader={unloader}
-						loader={loader}
-						className={s.image}
-					/>
+					<Img src={src} unloader={unloader} loader={loader} className={s.image} />
 				</div>
 
 				<div className="mt-[3px] flex justify-center gap-x-2">
-					<Button
-						size={"icon"}
-						onClick={handleAddLike}
-						className="hover:text-red-500"
-					>
+					<Button size={"icon"} onClick={handleAddLike} className="hover:text-red-500">
 						<Heart size={30} />
 					</Button>
-					<Button
-						size={"icon"}
-						onClick={() => {}}
-						className="hover:text-red-500"
-					>
+					<Button size={"icon"} onClick={() => {}} className="hover:text-red-500">
 						<Expand size={30} />
 					</Button>
 					<Button

@@ -1,13 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { db } from "@/shared/config/firebase-config";
-import {
-	DocumentData,
-	collection,
-	getDocs,
-	orderBy,
-	query,
-	where,
-} from "firebase/firestore";
+import { DocumentData, collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useGetAuthUser } from "../../../shared/hooks/useGetAuthUser";
 

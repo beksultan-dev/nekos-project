@@ -1,10 +1,4 @@
-import {
-	Sheet,
-	SheetContent,
-	SheetHeader,
-	SheetTitle,
-	SheetTrigger,
-} from "@/common/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/common/ui/sheet";
 import { SlidersHorizontal } from "lucide-react";
 
 interface Props {

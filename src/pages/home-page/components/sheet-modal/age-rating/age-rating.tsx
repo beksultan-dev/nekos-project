@@ -5,13 +5,8 @@ import { RadioGroup, RadioGroupItem } from "../../../../../common/ui/radio-group
 import { useSetRating } from "./hooks/useSetRating";
 
 export const AgeRatingSelect = () => {
-	const {
-		onValueChange,
-		onApplyChanges,
-		isCurrentFilterActive,
-		defaultValue,
-		globalAgeRating,
-	} = useSetRating();
+	const { onValueChange, onApplyChanges, isCurrentFilterActive, defaultValue, globalAgeRating } =
+		useSetRating();
 
 	return (
 		<RadioGroup
