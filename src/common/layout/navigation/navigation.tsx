@@ -12,7 +12,7 @@ export const Navigation = () => {
 	const { cls, changeTheme, theme } = useThemeChange();
 
 	return (
-		<header className="sticky top-0 bg-zinc-300 dark:bg-zinc-800">
+		<header className="sticky top-0 z-50 bg-zinc-300 dark:bg-zinc-800">
 			<NavigationMenu className={s[cls]}>
 				<NavigationMenuList className="flex w-screen justify-between px-6">
 					<div>

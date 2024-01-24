@@ -1,3 +1,4 @@
+import { Toaster } from "@/common/ui/sonner";
 import { AuthPage } from "@/pages/auth-page/authPage";
 import { HomePage } from "@/pages/home-page/HomePage";
 import { NotFoundPage } from "@/pages/not-found-page/NotFoundPage";
@@ -9,6 +10,15 @@ import { HomeLayout } from "./layouts/HomeLayout";
 export const App = () => {
 	return (
 		<>
+			<Toaster
+				position="top-center"
+				toastOptions={{
+					classNames: {
+						title: "text-base",
+					},
+					cancelButtonStyle: { fontSize: "18px" },
+				}}
+			/>
 			<Routes>
 				<Route path="/" element={<HomeLayout />}>
 					<Route index element={<HomePage />} />

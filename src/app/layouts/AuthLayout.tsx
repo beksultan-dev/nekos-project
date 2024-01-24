@@ -1,6 +1,6 @@
 import { Button } from "@/common/ui/button";
 import { ChevronLeft } from "lucide-react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
 
 export const AuthLayout = () => {
 	const { pathname } = useLocation();
@@ -13,6 +13,10 @@ export const AuthLayout = () => {
 			navigate("/");
 		}
 	};
+
+	if (pathname === "/auth") {
+		return <Navigate to={"/auth/login"} />;
+	}
 
 	return (
 		<div className="flex h-screen items-center justify-center bg-zinc-300 *:text-white dark:bg-zinc-900">

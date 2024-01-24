@@ -1,6 +1,5 @@
 import { Button } from "@/common/ui/button";
 import { useAddLikes } from "@/pages/home-page/components/images-list/single-image/hooks/useAddLikes";
-import { useGetAuthUser } from "@/shared/hooks/useGetAuthUser";
 import { Rating } from "@/store/models/randomCharactersModels";
 import { Expand, ExternalLink, Heart, HeartOff, Shrink } from "lucide-react";
 import { Img } from "react-image";
@@ -24,8 +23,7 @@ export const SingleImage = ({
 	imageId,
 	rating,
 }: Props) => {
-	const user = useGetAuthUser();
-	const { addLike } = useAddLikes(user);
+	const { addLike } = useAddLikes();
 
 	const handleAddLike = () => {
 		addLike({ source: externalSrc, image_url: src, imageId, rating });
@@ -48,16 +46,24 @@ export const SingleImage = ({
 				</div>
 
 				<div className="mt-[3px] flex justify-center gap-x-2">
-					<Button size={"icon"} onClick={handleAddLike} className="">
+					<Button
+						size={"icon"}
+						onClick={handleAddLike}
+						className="hover:text-red-500"
+					>
 						<Heart size={30} />
 					</Button>
-					<Button size={"icon"} onClick={() => {}} className="">
+					<Button
+						size={"icon"}
+						onClick={() => {}}
+						className="hover:text-red-500"
+					>
 						<Expand size={30} />
 					</Button>
 					<Button
 						size={"icon"}
 						onClick={handleRedirectToSource}
-						className=""
+						className="hover:text-red-500"
 						disabled={externalSrc ? false : true}
 					>
 						<ExternalLink size={30} />

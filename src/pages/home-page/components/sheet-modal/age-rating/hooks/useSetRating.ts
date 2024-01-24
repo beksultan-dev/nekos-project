@@ -1,3 +1,4 @@
+import { showConner } from "@/shared/lib/showSonner";
 import { api } from "@/store/api/characters-api";
 import { useAppDispatch, useAppSelector } from "@/store/hooks/hooks";
 import { Rating } from "@/store/models/randomCharactersModels";
@@ -22,6 +23,7 @@ export const useSetRating = () => {
 		if (!isCurrentFilterActive) {
 			localStorage.setItem("age_rating", globalAgeRating);
 			dispatch(api.util.resetApiState());
+			showConner({ text: "Changes apllied", variant: "success" });
 		}
 	}, [globalAgeRating, dispatch, isCurrentFilterActive]);
 

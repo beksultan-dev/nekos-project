@@ -1,4 +1,4 @@
-import { UserModel } from "./useAuth";
+import { UserModel } from "../../pages/auth-page/hooks/useAuth";
 
 export const useGetAuthUser = () => {
 	if (localStorage.getItem("auth") === null) return;

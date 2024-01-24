@@ -18,11 +18,11 @@ export const ResetPassPage = ({ resetPassByMail, email }: Props) => {
 					type="email"
 					id="auth_email"
 					placeholder="Email"
-					className="mt-1 text-sm"
+					className="mt-1 bg-zinc-300 text-sm text-black"
 				/>
 			</div>
 
-			<Button className="bg-slate-700 hover:bg-slate-600" onClick={resetPassByMail}>
+			<Button className="bg-slate-700  hover:bg-slate-600" onClick={resetPassByMail}>
 				Send confirmation email
 			</Button>
 		</>

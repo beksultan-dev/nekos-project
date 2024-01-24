@@ -1,4 +1,4 @@
-import { useAuth } from "@/shared/hooks/useAuth";
+import { useAuth } from "@/pages/auth-page/hooks/useAuth";
 import { useGetAuthUser } from "@/shared/hooks/useGetAuthUser";
 import { Navigate, useLocation } from "react-router-dom";
 import { RandomImagesList } from "./components/random-images-list/random-images-list";
@@ -14,7 +14,7 @@ export const UserProfilePage = () => {
 	const likes = useGetLikes();
 
 	if (pathname === "/user-profile" && !user) {
-		return <Navigate to="/auth/register" />;
+		return <Navigate to="/auth/login" />;
 	}
 
 	const placeHolder =

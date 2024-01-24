@@ -13,7 +13,7 @@ interface Props {
 
 export const SheetModal = ({ children }: Props) => {
 	return (
-		<>
+		<div className="flex justify-end pb-4 pr-4 pt-2">
 			<Sheet>
 				<SheetTrigger className="py-1dark:border-white flex items-center gap-2 rounded border-black px-2 hover:underline">
 					<SlidersHorizontal />
@@ -26,6 +26,6 @@ export const SheetModal = ({ children }: Props) => {
 					</SheetHeader>
 				</SheetContent>
 			</Sheet>
-		</>
+		</div>
 	);
 };

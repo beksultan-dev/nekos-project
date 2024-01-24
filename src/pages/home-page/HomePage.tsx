@@ -7,25 +7,19 @@ import s from "./HomePage.module.css";
 import { ImagesList } from "./components/images-list/images-list";
 import { useFetchOnMount } from "./hooks/useFetchOnMount";
 import { useRefetchByScroll } from "./hooks/useRefetchByScroll";
-import { useRefetchOnError } from "./hooks/useRefetchOnError";
+import { errorMsg, useRefetchOnError } from "./hooks/useRefetchOnError";
 
 export const HomePage = () => {
 	const { refetch, isFetching, isError, data, isLoading } = useFetchOnMount();
 	const { inView, ref } = useRefetchByScroll(refetch);
 	const { refetchOnClick } = useRefetchOnError();
 
-	const errorMsg = (err: Error) => {
-		console.log(err);
-	};
-
 	return (
-		<main>
+		<main className="">
 			{!isLoading && (
-				<div className={s.triggerBtn}>
-					<SheetModal>
-						<AgeRatingSelect />
-					</SheetModal>
-				</div>
+				<SheetModal>
+					<AgeRatingSelect />
+				</SheetModal>
 			)}
 
 			<div className={s.container}>
