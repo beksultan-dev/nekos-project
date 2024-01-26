@@ -1,5 +1,8 @@
 import { auth, googleProvider } from "@/shared/config/firebase-config";
 import { showConner } from "@/shared/lib/showSonner";
+import { useAppDispatch, useAppSelector } from "@/store/hooks/hooks";
+import { UserModel } from "@/store/models/user-model";
+import { changeCurrentUser } from "@/store/slices/user-preferenses/user-preferenses";
 import {
 	createUserWithEmailAndPassword,
 	sendPasswordResetEmail,
@@ -10,19 +13,12 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useInput } from "../../../shared/hooks/useInput";
 
-export interface UserModel {
-	userId: string;
-	name: string | null;
-	photo: string | null;
-	email: string | null;
-	isAuth: boolean;
-}
-
 export const useAuth = () => {
 	const email = useInput();
 	const pass = useInput();
 	const passConfirm = useInput();
 	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
 
 	const registerWithEmail = async () => {
 		try {
@@ -65,6 +61,7 @@ export const useAuth = () => {
 				isAuth: true,
 			};
 
+			dispatch(changeCurrentUser(userData));
 			showConner({ text: "Login completed", variant: "success" });
 			localStorage.setItem("auth", JSON.stringify(userData));
 			navigate("/auth");
@@ -106,10 +103,10 @@ export const useAuth = () => {
 	const logOut = async () => {
 		await signOut(auth);
 
+		dispatch(changeCurrentUser(undefined));
 		localStorage.removeItem("auth");
 		localStorage.removeItem("user-likes");
 		showConner({ text: "Logged out", variant: "success" });
-		navigate("/");
 	};
 
 	return {

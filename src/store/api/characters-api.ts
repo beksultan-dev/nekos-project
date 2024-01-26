@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Main, Rating } from "../models/randomCharactersModels";
+import { Main, Rating } from "../models/random-char-models";
 
 export const api = createApi({
 	reducerPath: "characterApi",

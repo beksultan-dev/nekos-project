@@ -6,6 +6,7 @@ import { useThemeChange } from "@/shared/hooks/useThemeChange";
 import { MoonStar, SunMoon } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Button } from "../../ui/button";
+import { UserProfilePopover } from "./components/user-profile-popover/user-profile-popover";
 import s from "./index.module.css";
 
 export const Navigation = () => {
@@ -20,7 +21,7 @@ export const Navigation = () => {
 							Home
 						</NavLink>
 						<NavLink to="/user-profile" className={s.link}>
-							Profile
+							<UserProfilePopover />
 						</NavLink>
 					</div>
 

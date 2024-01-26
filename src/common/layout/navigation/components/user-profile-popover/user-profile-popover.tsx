@@ -1,5 +1,11 @@
-import s from "./user-profile-popover.module.css";
+import { useAppSelector } from "@/store/hooks/hooks";
 
-export const userProfilePopover = () => {
-	return <div>userProfileNav</div>;
+export const UserProfilePopover = () => {
+	const { currentUser } = useAppSelector((state) => state.userPreferenses);
+
+	if (currentUser) {
+		return <img src={currentUser.photo as string} alt="" />;
+	}
+
+	return <>Profile</>;
 };

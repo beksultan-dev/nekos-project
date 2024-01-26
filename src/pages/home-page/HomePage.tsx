@@ -1,7 +1,7 @@
-import { ErrorComponent } from "@/common/layout/error/HomePageError";
+import { ErrorComponent } from "@/common/layout/error/home-page-error";
 import { AgeRatingSelect } from "@/pages/home-page/components";
 import { SheetModal } from "@/pages/home-page/components/sheet-modal/sheet-modal";
-import { Item } from "@/store/models/randomCharactersModels";
+import { Item } from "@/store/models/random-char-models";
 import { ErrorBoundary } from "react-error-boundary";
 import s from "./HomePage.module.css";
 import { ImagesList } from "./components/images-list/images-list";
@@ -15,12 +15,10 @@ export const HomePage = () => {
 	const { refetchOnClick } = useRefetchOnError();
 
 	return (
-		<main className="">
-			{!isLoading && (
-				<SheetModal>
-					<AgeRatingSelect />
-				</SheetModal>
-			)}
+		<main>
+			<SheetModal isLoading={isLoading}>
+				<AgeRatingSelect />
+			</SheetModal>
 
 			<div className={s.container}>
 				<ErrorBoundary

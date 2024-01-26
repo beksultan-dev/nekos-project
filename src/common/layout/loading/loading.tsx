@@ -1,5 +1,4 @@
 import { RotateCw } from "lucide-react";
-import s from "./index.module.css";
 
 export const Loading = () => {
 	return (

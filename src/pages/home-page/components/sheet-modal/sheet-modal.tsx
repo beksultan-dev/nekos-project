@@ -1,11 +1,17 @@
+import { Loading } from "@/common/layout/loading/loading";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/common/ui/sheet";
 import { SlidersHorizontal } from "lucide-react";
 
 interface Props {
 	children: React.ReactNode;
+	isLoading: boolean;
 }
 
-export const SheetModal = ({ children }: Props) => {
+export const SheetModal = ({ children, isLoading }: Props) => {
+	if (isLoading) {
+		return <Loading />;
+	}
+
 	return (
 		<div className="flex justify-end pb-4 pr-4 pt-2">
 			<Sheet>

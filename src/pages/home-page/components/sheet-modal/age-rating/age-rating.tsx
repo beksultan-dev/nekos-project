@@ -1,5 +1,5 @@
 import { Button } from "@/common/ui/button";
-import { Rating } from "@/store/models/randomCharactersModels";
+import { Rating } from "@/store/models/random-char-models";
 import { Label } from "../../../../../common/ui/label";
 import { RadioGroup, RadioGroupItem } from "../../../../../common/ui/radio-group";
 import { useSetRating } from "./hooks/useSetRating";

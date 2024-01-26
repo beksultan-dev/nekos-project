@@ -1,10 +1,10 @@
 import { Button } from "@/common/ui/button";
 import { Input } from "@/common/ui/input";
 import { useAuth } from "@/pages/auth-page/hooks/useAuth";
+import { useAppSelector } from "@/store/hooks/hooks";
 import { Globe } from "lucide-react";
 import { useId, useRef } from "react";
 import { Link, Navigate, useLocation } from "react-router-dom";
-import { useGetAuthUser } from "../../shared/hooks/useGetAuthUser";
 import { ResetPassPage } from "./components/reset-pass/reset-pass";
 
 export const AuthPage = () => {
@@ -18,18 +18,18 @@ export const AuthPage = () => {
 		resetPassByMail,
 		passConfirm,
 	} = useAuth();
-	const data = useGetAuthUser();
+	const { currentUser } = useAppSelector((state) => state.userPreferenses);
 	const emailId = useId();
 	const passId = useId();
 	const passConfirmId = useId();
 
-	if ((pathname === "/auth/login" || pathname === "/auth/register") && data) {
+	if ((pathname === "/auth/login" || pathname === "/auth/register") && currentUser) {
 		return <Navigate to="/" />;
 	}
 
-	if (pathname === "/auth/reset-pass" && !data) {
+	if (pathname === "/auth/reset-pass" && !currentUser) {
 		return <ResetPassPage email={email} resetPassByMail={resetPassByMail} />;
-	} else if (data) {
+	} else if (currentUser) {
 		return <Navigate to="/user-profile" />;
 	}
 

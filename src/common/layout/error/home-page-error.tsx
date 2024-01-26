@@ -1,5 +1,4 @@
 import { Button } from "@/common/ui/button";
-import fetchErrorImg from "@/shared/assets/error.svg";
 import { RefreshCw } from "lucide-react";
 import { FallbackProps } from "react-error-boundary";
 

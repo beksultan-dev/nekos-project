@@ -1,7 +1,7 @@
 import { showConner } from "@/shared/lib/showSonner";
 import { api } from "@/store/api/characters-api";
 import { useAppDispatch, useAppSelector } from "@/store/hooks/hooks";
-import { Rating } from "@/store/models/randomCharactersModels";
+import { Rating } from "@/store/models/random-char-models";
 import { setGlobalAgeRating } from "@/store/slices/user-preferenses/user-preferenses";
 import { useCallback } from "react";
 

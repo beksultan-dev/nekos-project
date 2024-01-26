@@ -1,9 +1,9 @@
 import { db } from "@/shared/config/firebase-config";
 import { showConner } from "@/shared/lib/showSonner";
-import { Rating } from "@/store/models/randomCharactersModels";
+import { useAppSelector } from "@/store/hooks/hooks";
+import { Rating } from "@/store/models/random-char-models";
 import { addDoc, collection, deleteDoc, doc, serverTimestamp } from "firebase/firestore";
 import { useCallback } from "react";
-import { useGetAuthUser } from "../../../../../../shared/hooks/useGetAuthUser";
 
 type RandomImageModel = {
 	imageId: number;
@@ -14,17 +14,17 @@ type RandomImageModel = {
 
 export const useAddLikes = () => {
 	const likesRef = collection(db, "likes");
-	const user = useGetAuthUser();
+	const { currentUser } = useAppSelector((state) => state.userPreferenses);
 
 	const addLike = useCallback(
 		async ({ imageId, source, image_url, rating }: RandomImageModel) => {
-			if (!user) {
+			if (!currentUser) {
 				showConner({ text: "Log in first", variant: "warning" });
 				return;
 			}
 
 			await addDoc(likesRef, {
-				userId: user?.userId,
+				userId: currentUser?.userId,
 				imageId,
 				source,
 				image_url,
@@ -33,7 +33,7 @@ export const useAddLikes = () => {
 			});
 			showConner({ text: "Image added", variant: "success" });
 		},
-		[likesRef, user],
+		[likesRef],
 	);
 
 	const remove = useCallback(async (id: string) => {
